@@ -1,0 +1,90 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://kit.fontawesome.com/72c60ae16b.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    body{
+      
+      background-image: url(../static/img/bg1.jpg);
+      background-size: cover;
+
+      
+    }
+  </style>
+  <style>
+    .main{
+    
+      height: 100vh;
+        width: 100%;
+      }
+      .center{
+        text-align: center;
+        color:aliceblue;
+        padding-top: 16%;
+         }
+    
+      .center form{
+        padding:1em;
+      }
+    
+      .center form input{
+        padding:0.5em;
+        margin: 1em;
+        width: 15%;
+        font-size: 15px;
+        border: 0.1px solid white;
+        border-radius: 10px;
+        background-color: #4a6f8138;
+    
+      }
+      .center form button{
+        color: #70899f96;
+        font-size: 15px;
+        width: 6em;
+        margin: 10px;
+        padding: 8px 8px ;
+        border-radius: 20px;
+        background-color:#4a6f8138;
+      }
+      .center form button a{
+        text-decoration: none;
+        color: #70899f96;
+      }
+    
+    .center form button a:hover,.center button:hover{
+      background-color: aliceblue;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+ 
+    <div class="center">
+   
+    <form action="/signup" method="POST">
+      {% csrf_token %}
+      <label for="/">Username</label><br/><input type="text" name="username" id="username"><br>
+      <label for="">Email</label><br/><input type="email" name="email" id="email"><br>
+      <label for="">Password</label><br/><input type="password" name="password1" id="password1"><br>
+      <label for="">Confirm Pasword</label><br/><input type="password" name="password2" id="password2"><br>
+    <button type="submit" name="Create User">Register</button><br>
+    or <br/>
+    <button><a href="/login">login</a></button>
+    
+    </form>
+    
+  </div>
+  </div>
+</body>
+</html>

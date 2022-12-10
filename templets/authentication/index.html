@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://kit.fontawesome.com/72c60ae16b.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+    
+  {% endblock %}
+
+  {% block style %}
+    
+  {% endblock %}
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    body{
+      
+      background-image: url(../static/img/bg1.jpg);
+      background-size: cover;
+
+      
+    }
+  </style>
+  <style>
+    .main{
+      
+    height: 100vh;
+      width: 100%;
+    }
+    .center{
+      text-align: center;
+      color:aliceblue;
+      padding-top: 25%;
+       }
+
+       .center{
+        text-align: center;
+        color:aliceblue;
+        padding-top: 25%;
+         }
+  
+      .center button{
+        color: #70899f96;
+        font-size: 25px;
+        width: 6em;
+        margin: 10px;
+        padding: 8px 8px ;
+        border-radius: 20px;
+        background-color:#4a6f8138;
+      }
+      .center button a{
+        text-decoration: none;
+        color: #70899f96;
+      }
+
+    .center button a:hover,.center button:hover{
+      background-color: aliceblue;
+      color: black;
+    }
+
+    .message{
+      color:antiquewhite;
+      background-color: red;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+  </div>
+  {% endfor %}
+</div>
+
+  <div class="main">
+    <div class="center">
+    <h1>Welcome to My Crypto World</h1>
+    {% if user.is_authenticated %}
+    <h2>hello {{email}} you have logged Successfully</h2>
+    
+    <button> <a href="signout"> Logout</a></button>
+    {% else %}
+      
+    
+    <button> <a href="signin"> Login</a></button>
+    <button> <a href="signup"> Register</a></button>
+    {% endif %}
+  </div>
+  </div>
+  </body>
+</html>
